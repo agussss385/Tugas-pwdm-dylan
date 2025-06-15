@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Tebak Angka</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Kopi Anak Kicik</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="lokasi_kontak.html">Lokasi & Kontak</a></li>
+      <li><a href="game.html" class="active">Game</a></li>
+    </ul>
+  </nav>
+  <h1>🎯 Game Tebak Angka</h1>
+  <p>Tebak angka dari <strong>1</strong> sampai <strong>10</strong> untuk dapat hadiah virtual!</p>
+
+  <input type="number" id="tebakan" min="1" max="10" placeholder="Masukkan angka...">
+  <button onclick="cekJawaban()">Cek</button>
+  <p class="result" id="hasil"></p>
+
+  <script>
+    const angkaBenar = Math.floor(Math.random() * 10) + 1;
+
+    function cekJawaban() {
+      const input = parseInt(document.getElementById('tebakan').value);
+      const hasil = document.getElementById('hasil');
+
+      if (!input || input < 1 || input > 10) {
+        hasil.textContent = "Masukkan angka 1 - 10 dulu ya!";
+        hasil.style.color = "#ff8c00";
+        return;
+      }
+
+      if (input === angkaBenar) {
+        hasil.textContent = "🎉 GOKSSS! Jawaban kamu benar!";
+        hasil.style.color = "green";
+      } else {
+        hasil.textContent = `😅 Belum tepat, coba lagi!`;
+        hasil.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
